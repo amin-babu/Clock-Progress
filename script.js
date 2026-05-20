@@ -37,16 +37,33 @@ function clockFunc() {
 
   const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   document.querySelector('.weekday').innerHTML = weekDays[dateObject.getDay()];
+
+
+  // progress related code
+  let startBarBySecond = dateObject.getSeconds() + 1;
+  let progressPerSecond = startBarBySecond * (100 / 60);
+  const bar = document.querySelector('#bar div');
+  bar.style.width = `${progressPerSecond}%`;
+  const secondTitle = document.querySelector('.second-container span');
+  secondTitle.innerHTML = `Second - ${dateObject.getSeconds() + 1}/60`;
+
+  // minute progress
+  let startBarByMinute = dateObject.getMinutes() + 1;
+  let progressPerMinute = startBarByMinute * (100 / 60);
+  const minuteBar = document.querySelector('#minute-bar div');
+  minuteBar.style.width = `${progressPerMinute}%`;
+  const minuteTitle = document.querySelector('.minute-container span');
+  minuteTitle.innerHTML = `Minute - ${dateObject.getMinutes() + 1}/60`;
+
+  // hour progress
+  let startBarByHour = dateObject.getHours() + 1;
+  let progressPerHour = startBarByHour * (100 / 24);
+  const hourBar = document.querySelector('#hour-bar div');
+  hourBar.style.width = `${progressPerHour}%`;
+  const hourTitle = document.querySelector('.hour-container span');
+  hourTitle.innerHTML = `Hour - ${dateObject.getHours() + 1}/24`;
 }
 
 clockFunc();
 setInterval(() => clockFunc(), 1000);
 
-
-// bar related code
-setInterval(() => {
-  let startBarBySecond = new Date().getSeconds() + 1;
-  let progressPerSecond = startBarBySecond * (100 / 60);
-  const bar = document.querySelector('#bar div');
-  bar.style.width = `${progressPerSecond}%`;
-}, 1000);

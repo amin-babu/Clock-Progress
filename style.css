@@ -10,7 +10,7 @@
 body {
   display: flex;
   gap: 2rem;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .container {
@@ -46,7 +46,17 @@ body {
   font-size: 46px;
 }
 
-#bar {
+.second-container {
+  margin: 1.3rem 0;
+}
+
+.minute-container {
+  margin-bottom: 1.3rem;
+}
+
+.second-container #bar,
+.minute-container #minute-bar,
+.hour-container #hour-bar {
   margin-top: 7px;
   height: 20px;
   width: 400px;
@@ -54,9 +64,12 @@ body {
   border-radius: 4px;
 }
 
-#bar div {
+.second-container #bar div,
+.minute-container #minute-bar div,
+.hour-container #hour-bar div {
   height: 100%;
   border-radius: 4px;
+  width: 100%;
   transition: 0.3s;
   background-color: rgb(10, 243, 2);
 }
